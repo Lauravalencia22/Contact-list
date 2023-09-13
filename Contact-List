@@ -1,0 +1,36 @@
+// Definimos un objeto para almacenar los contactos
+const agenda = [];
+
+// Función para crear un nuevo contacto
+function crearContacto() {
+    const contacto = {
+        ID: prompt('Ingrese el ID del contacto:'),
+        Nombres: prompt('Ingrese los nombres del contacto:'),
+        Apellidos: prompt('Ingrese los apellidos del contacto:'),
+        Teléfono: prompt('Ingrese el número de teléfono del contacto:'),
+        Ubicación: {
+            Ciudad: prompt('Ingrese la ciudad del contacto:'),
+            Dirección: prompt('Ingrese la dirección del contacto:')
+        }
+    };
+
+    agenda.push(contacto);
+    console.log('Contacto creado con éxito:', contacto);
+}
+
+// Función para eliminar un contacto por ID
+function eliminarContacto() {
+    const idABuscar = prompt('Ingrese el ID del contacto que desea eliminar:');
+    const indice = agenda.findIndex(contacto => contacto.ID === idABuscar);
+
+    if (indice !== -1) {
+        const contactoEliminado = agenda.splice(indice, 1);
+        console.log('Contacto eliminado con éxito:', contactoEliminado[0]);
+    } else {
+        console.log('No se encontró un contacto con ese ID.');
+    }
+}
+
+// Practica
+crearContacto();
+eliminarContacto();
